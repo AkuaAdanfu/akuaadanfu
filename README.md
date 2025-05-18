@@ -102,20 +102,75 @@ This tool combines **speech recognition**, **NLP**, and **computer vision** to i
 
 ---
 
-## 🔧 Setup Instructions
+## 🔧 Local Setup Instructions
 
-To run locally:
-
+### 1. Clone the repository
 ```bash
-# Clone the repo
-git clone https://github.com/AkuaAdanfu/okuaniadamfo.git
+git clone https://github.com/your-username/okuani-adamfo.git
+cd okuaniadamfo-api
 
-# Backend setup
-cd akuaadanfu-api
+2. Install dependencies
 npm install
+
+3. Create a .env file
+Duplicate .env.example and fill in your actual keys:
+cp .env.example .env
+
+4. Run the server
 npm start
 
-# Frontend setup
-cd akuaadanfu-app
-npm install
-npm start
+5. MongoDB Setup (via Atlas)
+Sign up at https://www.mongodb.com/cloud/atlas
+
+Create a free cluster and user
+
+Whitelist your IP under Network Access
+
+Add your URI to .env as MONGO_URI
+
+
+📤 API Endpoints
+Endpoint
+Method
+Description
+/upload/voice
+POST
+Upload audio for ASR (voice input)
+/upload/image
+POST
+Upload image for disease detection
+/diagnose
+POST
+Combine voice + image for diagnosis
+/output/localize
+POST
+Translate + speak the diagnosis
+
+
+---
+
+## ⚙️ 4. Sample Frontend Axios Call
+
+Here’s how your frontend (e.g., React) can call the backend for voice input:
+
+```js
+import axios from 'axios';
+
+const sendVoiceFile = async (file) => {
+  const formData = new FormData();
+  formData.append('audio', file);
+
+  const response = await axios.post('http://localhost:5000/upload/voice', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+
+  console.log('Transcription:', response.data.transcription);
+};
+
+And for image:
+formData.append('image', file);
+axios.post('/upload/image', formData, ...)
+
+
