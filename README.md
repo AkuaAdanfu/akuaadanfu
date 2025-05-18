@@ -108,7 +108,7 @@ To run locally:
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/akuaadanfu.git
+git clone https://github.com/AkuaAdanfu/okuaniadamfo.git
 
 # Backend setup
 cd akuaadanfu-api
