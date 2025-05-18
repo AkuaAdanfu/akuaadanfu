@@ -130,21 +130,12 @@ Add your URI to .env as MONGO_URI
 
 
 📤 API Endpoints
-Endpoint
-Method
-Description
-/upload/voice
-POST
-Upload audio for ASR (voice input)
-/upload/image
-POST
-Upload image for disease detection
-/diagnose
-POST
-Combine voice + image for diagnosis
-/output/localize
-POST
-Translate + speak the diagnosis
+| **Endpoint**       | **Method** | **Description**                                 |
+| ------------------ | ---------- | ----------------------------------------------- |
+| `/upload/voice`    | `POST`     | Upload audio for ASR (voice input)              |
+| `/upload/image`    | `POST`     | Upload image for crop disease detection         |
+| `/diagnose`        | `POST`     | Combine voice and/or image into diagnosis       |
+| `/output/localize` | `POST`     | Translate and generate speech in local language |
 
 
 ---
